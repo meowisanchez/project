@@ -1,0 +1,54 @@
+
+@font-face {
+    src: url(fonts/Italianno-Regular.ttf);
+    font-family: Italianno-regular;
+}
+
+body {
+    background-color: #F19EC8;
+}
+.remembrance-p {
+    margin: 60px;
+    width: 100%; 
+}
+
+video {
+    max-width: 100%;
+    max-height: 550px;
+    float: left;
+    margin-right: 30px;
+}
+
+h1 {
+    font-family: Italianno-regular;
+    font-size:80px;
+    margin-bottom: -50px
+}
+
+p {
+    font-family: Italianno-regular;
+    font-size:55px;
+    margin-right: 150px;
+    margin-left: 60px;
+    line-height:1.5;
+    word-spacing:8px;
+    letter-spacing: 1px;
+    
+}
+
+.prettyyellow {
+    max-width: 100%;
+    height: auto;
+    float: right;
+    margin-left: 30px;
+}
+
+.prettyblue {
+    max-width: 100%;
+    height: auto;
+    float: left;
+    margin-right: 30px;
+    margin-left: -40px;
+}
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY!!!</title>
+</head>
+
+<style>
+    @font-face {
+        src: url(fonts/YesevaOne-Regular.ttf);
+        font-family: YesevaOne-Regular;
+    }
+    
+    @font-face {
+        src: url(fonts/EmilysCandy-Regular.ttf);
+        font-family: EmilysCandy-Regular;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: black;
+        background-image: url(images/birthday-kitty.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding: 40px 20px; 
+    }
+
+    h1 {
+        text-align: center;
+        color: #FFD1DC;
+        font-family: YesevaOne-Regular;
+        font-size: 2.2em;
+        margin-top: 40px;
+        margin-bottom: 50px; 
+        line-height: 1.4;
+    }
+
+    p {
+        text-align: center;
+        color: #FFD1DC;
+        font-family: EmilysCandy-Regular;
+        font-size: 1.6em;
+        letter-spacing: 1px;
+        max-width: 900px;       
+        margin: 0 auto 35px auto; 
+        line-height: 1.8;       
+    }
+
+    a {
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 120px; 
+        margin-bottom: 100px;
+    }
+
+    .love-btn {
+        position: relative;
+        padding: 25px 22px;
+        border: none;
+        border-radius: 70px;
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff77a9, #ff4f87);
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: .5px;
+        box-shadow: 0 15px 35px rgba(255, 75, 130, .35);
+        transition: transform 0.35s, box-shadow 0.35s;
+        overflow: visible;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .love-btn span {
+        position: relative;
+        z-index: 10;
+    }
+
+    .love-btn:hover {
+        animation: floatHover 3s ease-in-out infinite;
+        box-shadow:
+            0 20px 45px rgba(255, 75, 130, .45),
+            0 0 35px rgba(255, 150, 190, .7);
+    }
+
+    .love-btn:active {
+        transform: scale(.97);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    @keyframes floatHover {
+        0%, 100% { transform: translateY(-6px) scale(1.05); }
+        50% { transform: translateY(-14px) scale(1.05); }
+    }
+
+    .emoji-arc {
+        position: absolute;
+        top: -95px; 
+        left: 50%;                
+        transform: translateX(-50%); 
+        width: 400px; 
+        height: 120px;
+        pointer-events: none;
+        z-index: 20;
+        background: transparent; 
+        border: none;
+        outline: none;
+    }
+
+    .arc-item {
+        position: absolute;
+        font-size: 26px;
+        opacity: 0;
+        offset-path: path('M 0 90 Q 135 -70 395 90');
+        offset-rotate: auto; 
+        transition: offset-distance 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    }
+
+    .arc-item.e1 { 
+        offset-distance: 0%; 
+    }
+
+    .love-btn:hover + .emoji-arc .arc-item {
+        opacity: 1;
+    }
+
+    .love-btn:hover + .emoji-arc .arc-item.e1 { 
+        offset-distance: 100%; 
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4f87;
+        font-size: 22px;
+        opacity: 0;
+        transition: .8s ease;
+        pointer-events: none;
+    }
+
+    .h1 { top: 50%; left: 15%; }
+    .h2 { top: 50%; right: 15%; }
+    .h3 { top: 15%; left: 30%; }
+    .h4 { bottom: 15%; right: 30%; }
+    .h5 { top: 20%; right: 40%; }
+    .h6 { bottom: 20%; left: 40%; }
+
+    .love-btn:hover .h1 { opacity: 1; transform: translate(-70px, -60px) rotate(-25deg) scale(1.5); }
+    .love-btn:hover .h2 { opacity: 1; transform: translate(70px, -70px) rotate(20deg) scale(1.6); }
+    .love-btn:hover .h3 { opacity: 1; transform: translate(-30px, -90px) scale(1.4); }
+    .love-btn:hover .h4 { opacity: 1; transform: translate(35px, 70px) scale(1.3); }
+    .love-btn:hover .h5 { opacity: 1; transform: translate(55px, -80px) rotate(35deg) scale(1.4); }
+    .love-btn:hover .h6 { opacity: 1; transform: translate(-55px, 75px) rotate(-30deg) scale(1.5); }
+
+    .love-btn::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: -40%;
+        width: 40%;
+        height: 220%;
+        background: rgba(255, 255, 255, 0); 
+        transform: rotate(-45deg);
+        transition: .7s;
+    }
+
+    .love-btn:hover::before {
+        left: 120%;
+    }
+
+    .love-btn::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 70px;
+        border: 2px solid rgba(255, 255, 255, .35);
+        animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: .7; }
+        70% { transform: scale(1.08); opacity: 0; }
+        100% { transform: scale(1.08); opacity: 0; }
+    }
+</style>
+
+
+<body>
+    
+    <h1 id="h1">HAPPY BIRTHDAY MERI JAAN!!! 🤗💗</h1>
+
+    <p id="p1">I've been waiting excitedly for this day for so long now and I had a lot planned but SOMEONE didn't wanna accept any gifts 🙄 
+        issokay I respect that but I wasn't gonna just sit here and do nothing 😝
+    </p>
+    
+    <p id="p2">Today is the day you, the most amazing human being in the whole universe was born (No exaggeration😇) IT'S MY JAANU'S BIRTHDAYYY!!! 
+        I do not know how your previous birthdays have been and I wish I had known you in our past so I could've celebrated it with you because your existence is most important to me I love the way you exist twin and it deserves to be celebrated
+        but we shall focus on the present and all your birthdays from this year onwards will be the celebrated grandly, I WILL MAKE SURE OF IT because you're specialest to me and you deserve the entire universe 🤗
+    </p>
+
+    <p id="p3">It's been only 5 months that we've known each other yet it feels like so much longer. It all started when I dm'd you and wallah I really don't dm anyone 😭
+        but I wanted to give you eidi because somewhere in my heart I wanted to see this stranger happy, even if we never talked again after that you'd be on my mind and I'd always keep you in my prayers. 
+        I've loved your smile, (smiles lines too obviously) those perfect teeth and lips and eyes and literally everything that makes you, you, since the beginning. 
+        And I will do ANYTHING to protect your happiness and peace and every single part of you. I never thought that this prettiest, sweetest girl
+        that I offered to get churiyan for before eid would mean so much to me. And just so we're clear you mean the MOST to me. 
+    </p>
+
+    <p id="p4">Somehow against all odds we met :) The best thing that's ever happened to me. If I had to do life all over again, I would go through every bad part of it if it meant finally meeting you
+        in the end. You really are irreplaceable to me. You've gone through so much, none of which you deserved but still you survived it all with a strong heart while still being the sweetest soul and for that I am genuinely proudest of you. 
+        And that is exactly the person I've fallen in love with, the smart, steadfast, funny, beautiful, kind, fiercly loyal, not afraid to stand up for the things she believes in and hardworking bhondu. I will always remember and cherish every little thing about you. 
+        I still remember all our conversations from the beginning, your tea times, your yapping, your knowledge and how you taught me a lot about islam, your jokes, your hating😝, your patriotism🍇, 
+        and okay maybe you do some rr sometimes😭 but I like listening to all of it and I know you always get back up and lock in😎 you have brought color into my life and so many other lives simply by being yourself
+        and I hope you never forget that. <br> YOU ARE AND ALWAYS WILL BE ENOUGH 💗
+    </p>
+
+    <p id="p5">I promised myself not to say I love you to any girl at least not before knowing her for more than a year yk. But we're not talking about me today, it's your day 
+        and my point is you're not just ANY girl you're literally THE Samahir and needless to say you're the most perfect person in my eyes and in my heart that I couldn't help myself. 
+        I thought yk life is short if I don't say it now and never get the chance to in the future for whatever reason it would be my biggest regret. I hope you know that I will never regret anything 
+        when it comes to you. And I know we're not dating or anything but no matter where we are in life and how we are doing I will always love you the same. The most. My heart is so full of you I can hardly call it my own🤗 
+        and my mind and soul and every fiber of my being are all yours and you will always be in my prayers and be loved by me, fi duniya wal akhira :) 
+        and if I were to ever lose my memory I have no doubt I would fall in love with only you all over again😝 keep staying strong and being yourself Samahir, 
+        you're doing amazing and I'll always be proudest of you no matter what even if all you do is simply exist. KHAIR ANYWAYS we're gonna put all that aside cus 
+        YOU'RE 18 NOWWW YAYYYYYYYYAYAYAYY !!! IM SO EXCITED you're gonna have a good day today no matter what idc. <br> Okay enough yapping I know this isn't much but I really tried okay😭 <br> Hover your mouse over the button
+    </p>
+
+    
+    <a href="heart.html">
+        <div class="container">
+      <button class="love-btn">
+        <span> Here's a game I made for you! :) </span>
+
+        <div class="heart h1">❤</div>
+        <div class="heart h2">❤</div>
+        <div class="heart h3">❤</div>
+        <div class="heart h4">❤</div>
+        <div class="heart h5">❤</div>
+        <div class="heart h6">❤</div>
+      </button>
+
+      <div class="emoji-arc">
+        <div class="arc-item e1">🤗💗</div>
+      </div>
+    </div>
+    </a>
+
+
+</body>
+</html>

@@ -6,6 +6,7 @@
 
 body {
     background-color: #F19EC8;
+    overflow-x: hidden; 
 }
 .remembrance-p {
     margin: 60px;
